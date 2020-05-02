@@ -1,0 +1,29 @@
+Curso Balta IO.
+
+Component do Angular ele é composto por arquivo CSS, HTML e TS.
+Spec - arquivo de teste (comportamento dentro do componente TS).
+Component -> importado do node
+
+@Component - Metadados, gerar um seletor, template e um estilo.
+Seletor gera uma tag HTML.
+<app-root> tag html index
+
+Template é template pode ser HTML.
+
+ng serve roda a aplicação.
+ng serve -o abre o browser.
+
+Type Script 
+public todos: any[] = [];
+public: públicas
+todos: variável (:) tipar //nome da variável : tipo
+any: (qualquer coisa) 
+[]: lista de minhas tarefas
+= vázio.
+ctor: monta o construtor.
+this: se refere a function
+um item a um array no js push
+No html para exibir os componetes {{}}. meio na variáveis.
+ul>li.
+<li *ngFor>: loop de repetição
+"let (var) todo of(in) todos {{ todo }}
