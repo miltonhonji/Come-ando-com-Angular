@@ -27,3 +27,10 @@ No html para exibir os componetes {{}}. meio na variáveis.
 ul>li.
 <li *ngFor>: loop de repetição
 "let (var) todo of(in) todos {{ todo }}
+export -> classe é pública.
+
+HTML 
+Tipos de Bind
+() = HTML > TS
+[] = TS > HTML
+[()] = TS <> HTML
