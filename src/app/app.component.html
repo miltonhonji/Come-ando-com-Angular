@@ -1,5 +1,7 @@
 <h1>{{ title }}</h1>
 <ul>
+  <!--Mostrando quando não há nada cadastrado-->
+  <p *ngIf="todos.length==0"><small>Não tem nenhuma tarefa hoje!</small></p>
   <li *ngFor="let todo of todos">
       {{ todo.id}}. {{ todo.title }} |
       <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> |
@@ -7,3 +9,19 @@
       <button (click)="remove(todo)">REMOVER</button>
   </li>
 </ul>
+
+<form [formGroup]="form">
+  <fieldset> <!--Em alguns casos em form.controls.pristine aparece para validar o formulario como um todo -->
+      <label>Tarefa: </label>
+      <input
+          type="text"
+          placeholder="Título da Tarefa"
+          maxlength="60"
+          formControlName="title">
+      <!--Campo para validar os caracteres-->
+      <!--Pristine: se o controle do formulário, já foi modificado ou não.-->
+      <small *ngIf="form.controls.title.invalid && !form.controls.title.pristine">Este campo deve conter entre 3 e 60 caracteres</small>
+      <!--Disabilitou o botão para salvar.-->
+      <button [disabled]="form.invalid" (click)="add()">Salvar</button>
+  </fieldset>
+</form>
