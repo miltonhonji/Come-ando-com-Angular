@@ -1,6 +1,7 @@
 import { Todo } from './../models/todo.model';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+//import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-root', // <app-root></app-root>
@@ -24,6 +25,9 @@ export class AppComponent {
           Validators.required
         ])]
       });
+
+      //Carregando a aplicação
+      this.load();
     }
 
     add() {
@@ -52,6 +56,8 @@ export class AppComponent {
         //this refere a variáveis acima.
         this.todos.splice(index, 1);
       }
+      //chamando o método save
+      this.save();
 
     }
 
@@ -60,6 +66,8 @@ export class AppComponent {
       //Chamando o done do todo.model.ts
       //setando para verdadeiro.
       todo.done = true;
+      //Chamando o save
+      this.save();
     }
 
     //Marcado Refazer
@@ -67,6 +75,8 @@ export class AppComponent {
       //Chamando o done do todo.model.ts
       //Setando para false
       todo.done = false;
+      //Chamando o save
+      this.save();
     }
 
     //Save
@@ -74,5 +84,18 @@ export class AppComponent {
       //Este método transforma o JSON em uma string.
       const data = JSON.stringify(this.todos);
       localStorage.setItem('todos', data);
+    }
+
+    //Load para mostrar os nomes
+    load() {
+      //campo string para os dados
+      const data = localStorage.getItem('todos');
+      //Convertendo para JSON
+      //Sempre usando PARSE
+      if(data){
+        this.todos = JSON.parse(data);
+      } else {
+        this.todos = [];
+      }
     }
 }
