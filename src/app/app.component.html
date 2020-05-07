@@ -1,12 +1,14 @@
 <h1 class="title animated jackInTheBox">Lista de Tarefas</h1>
 <ul class="animated flipInX" *ngIf="mode=='list'">
   <!--Mostrando quando não há nada cadastrado-->
-  <p *ngIf="todos.length==0"><small>Não tem nenhuma tarefa hoje!</small></p>
+  <p class="text-center" *ngIf="todos.length==0"><small>Não tem nenhuma tarefa hoje!</small></p>
   <li *ngFor="let todo of todos">
-      {{ todo.title }} |
-      <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> |
-      <button *ngIf="todo.done" (click)="markAsUndone(todo)">REFAZER</button> |
-      <button (click)="remove(todo)">REMOVER</button>
+      {{ todo.title }}
+      <button (click)="remove(todo)"><i class="far fa-trash-alt"></i></button>
+      <!--bolinha preta markAsDone-->
+      <button *ngIf="!todo.done" (click)="markAsDone(todo)"><i class="far fa-check-circle"></i></button>
+      <!--bolinha branca markAsDone-->
+      <button *ngIf="todo.done" (click)="markAsUndone(todo)"><i class="fas fa-check-circle"></i></button>
   </li>
 </ul>
 

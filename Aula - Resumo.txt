@@ -35,3 +35,5 @@ Tipos de Bind
 [] = TS > HTML
 [()] = TS <> HTML
 fontawesome - 1 requisicção, mais fácil.
+
+ ng build --prod (para criar a versão em operação)
