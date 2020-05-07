@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AppComponent {
     //Criando uma variável
+    public mode = 'list';
     public todos: Todo[] = []; //[] (vázio)
     public title: String = 'Minhas Tarefas';
     public form: FormGroup;
@@ -84,6 +85,7 @@ export class AppComponent {
       //Este método transforma o JSON em uma string.
       const data = JSON.stringify(this.todos);
       localStorage.setItem('todos', data);
+      this.mode = 'list';
     }
 
     //Load para mostrar os nomes
@@ -97,5 +99,9 @@ export class AppComponent {
       } else {
         this.todos = [];
       }
+    }
+
+    changeMode(mode: string) {
+      this.mode = mode;
     }
 }

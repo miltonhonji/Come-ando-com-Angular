@@ -34,3 +34,4 @@ Tipos de Bind
 () = HTML > TS
 [] = TS > HTML
 [()] = TS <> HTML
+fontawesome - 1 requisicção, mais fácil.
